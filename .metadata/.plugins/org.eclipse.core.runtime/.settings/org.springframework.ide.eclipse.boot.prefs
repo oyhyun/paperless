@@ -1,0 +1,15 @@
+default.install=Boot 2.1.15.RELEASE
+eclipse.preferences.version=1
+installs=https\://repo.spring.io/release/org/springframework/boot/spring-boot-cli/2.1.15.RELEASE/spring-boot-cli-2.1.15.RELEASE-bin.zip\\;Boot 2.1.15.RELEASE\\;;
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=paperless
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.bootVersion=2.7.5
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.description=Demo project for Spring Boot
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.groupId=com.example
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.javaVersion=1.8
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.language=java
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.name=paperless
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packageName=com.example.paperless
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packaging=war
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.type=GRADLE
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.version=0.0.1-SNAPSHOT
+org.springframework.ide.eclipse.boot.wizard.initializr.url=https\://start.spring.io\n

@@ -1,0 +1,50 @@
+package com.example.paperless;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class ReportController {
+	
+	/*@Autowired
+	private ReportDAO reportDAO;*/
+	
+	@RequestMapping(value="/reportReg_DailyBusiness.do")
+	public ModelAndView reportReg_DailyBusiness() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("reportReg_DailyBusiness");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/reportReg_vacation.do")
+	public ModelAndView reportReg_vacation() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("reportReg_vacation");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/reportReg_expense.do")
+	public ModelAndView reportReg_expense() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("reportReg_expense");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/reportDetail.do")
+	public ModelAndView reportDetail_DailyBusiness() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("reportDetail");
+		
+		return mav;
+	}
+	
+	
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="com.springsource.sts.boot.ui.dialogsettings.columnWidth0" value="150"/>
+	<item key="com.springsource.sts.boot.ui.dialogsettings.columnWidth1" value="300"/>
+	<item key="com.springsource.sts.boot.ui.dialogsettings.sortColumn" value="1"/>
+	<item key="org.springframework.ide.eclipse.boot.dash.ngrok.dialogsettings.columnWidth0" value="350"/>
+</section>

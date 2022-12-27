@@ -1,0 +1,153 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/views/common.jsp" %>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ApprovalLineAdd</title>
+		
+		<script>
+		
+			function checkApprovalLine() {
+				
+				var len = $("table > tbody tr").length;
+				var emp_no = "";
+				
+				for(var i = 1; i <= len; i++){
+					var tr = $("table > tbody tr:nth-child("+ i +")");
+					emp_no =  emp_no + tr.find(".emp_no").val() + ",";
+				}
+				
+				var formObj = $("[name=approvalLineReg]");
+				formObj.find("[name=emp_no]").val(emp_no);
+				
+				/*
+				$.ajax({
+					url:"/ApprovalLineAddProc.do"
+					, type:"post"
+					, data:$("[name=approvalLineAdd]").serialize()
+					, success:function(UpCnt){
+						if(UpCnt == 1){
+							alert("직원 등록 완료");
+						}
+						else{
+							alert(UpCnt);
+						}
+					}
+				});
+				*/
+			} //checkApprovalLine
+			
+			
+			function replaceAll(str, ostr, rstr){
+				if(str == undefined) return str;
+				return str.split(ostr).join(rstr);
+			}
+			
+			function replaceOrder(){
+				var len = $("table > tbody tr").length;
+				for(var i = 1; i <= len; i++){
+					$("table > tbody tr:nth-child("+ i +")").attr("id", i);
+					$("table > tbody tr:nth-child("+ i + ") td:first-child").text(i);
+				}
+			}
+			
+			function addItem(){
+				var len = $("table > tbody tr").length + 1;
+				var append_tr = $("#addtr").html();
+				append_tr = replaceAll(append_tr, 'ttr', 'tr id="'+ len + '"');
+				append_tr = replaceAll(append_tr, 'ttd', 'td');
+				append_tr = append_tr.replace(/index/g, len);
+				$("table > tbody").append(append_tr);
+			}
+			
+			function deleteItem(obj){
+				var tr = $(obj).closest("tr");
+				tr.remove();
+				replaceOrder();
+			}
+			
+			function goLoginForm(){
+				location.replace("/loginForm.do");
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+		<div class="container">
+			<form name="approvalLineAdd">
+				<input type="hidden" name="emp_no">
+			</form><!-- approvalLineReg -->
+				
+				<table>
+					<thead>
+						<tr>
+							<th>순서</th>
+							<th>부서</th>
+							<th>이름 직급</th>
+							<th>이메일</th>
+							<th colspan="2">전화번호</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="cnt" begin="1" end="5">
+							<tr id="${cnt}">
+								<td>${cnt}</td>
+								<td>
+									<select class="dept">
+										<c:forEach var="dept" items="${requestScope.deptList}">
+											<option value="${dept.dept_no}"> ${dept.dept_name}
+										</c:forEach>
+									</select>
+								</td>
+								<td>
+									<select class="name_jikup">
+										<c:forEach var="employee" items="${requestScope.allEmployeeList}">
+												<option value="employee.emp_no">${employee.emp_name} ${employee.jikup_name}
+										</c:forEach>
+									</select>
+								</td>
+								<td class="email"></td>
+								<td class="phone_num"></td>
+								<td>
+									<button onclick="deleteItem(this)"><span class="glyphicon glyphicon-minus"></span></button>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+					
+				</table>
+				
+				
+				<div id="addtr" style=" display: none;">
+					<ttr id="index">
+						<ttd>index</ttd>
+						<ttd>
+							<select class="dept">
+							</select>
+						</ttd>
+						<ttd>
+							<select class="name_jikup">
+							</select>
+						</ttd>
+						<ttd class="email"></ttd>
+						<ttd class="phone_num"></ttd>
+						<ttd class="emp_no" style=" display: none;"></td>
+						<ttd>
+							<button onclick="deleteItem(this)"><span class="glyphicon glyphicon-minus"></span></button>
+						</ttd>
+					</ttr>
+				</div>
+				
+				
+				<div class="button_div">
+					<input type="button" value="인원 추가" onClick="addItem()">
+					<input type="button" value="결재라인추가" onClick="checkApprovalLine()">
+        			<input type="button" value="화면닫기" onClick="goLoginForm()">
+				</div>
+		</div><!-- container -->
+	</body>
+</html>

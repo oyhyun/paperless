@@ -1,0 +1,34 @@
+package com.example.paperless;
+
+import org.springframework.web.multipart.MultipartFile;
+
+public class EmployeeDTO {
+	private String id;
+	
+	private int emp_no;
+	private String emp_name;
+	private int company_code;
+	private String company_name;
+	private String pwd;
+	private String newPwd;
+	private int jikup_code;
+	private String jikup_name;
+	private int dept_code;
+	private String dept_name;
+	private String email;
+	private String phone_num;
+	private String role;
+	
+	private String emp_noList;
+	private String dept_codeList;
+	private String jikup_codeList;
+	private int order;
+	
+	private MultipartFile img;
+	private String emp_img;
+	private String img_new;
+	private String img_old;
+	private String isDel;
+	
+	
+}
